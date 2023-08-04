@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import "./App.css";
+const Child = (props, ref) => {
+  const [stateTest, setStateTest] = useState(false);
+  const handleLog = () => console.log(stateTest);
+  useImperativeHandle(ref, () => {
+    return {
+      stateTest,
+      handleLog,
+    };
+  });
+  return <div>Child</div>;
+};
+const ChildComp = forwardRef(Child);
 function App() {
+  const ref = useRef();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={() => ref.current.handleLog()}>Check Func</button>
+      <button onClick={() => console.log(ref.current.stateTest)}>
+        Check State
+      </button>
+      <ChildComp ref={ref} />
+    </>
   );
 }
 
