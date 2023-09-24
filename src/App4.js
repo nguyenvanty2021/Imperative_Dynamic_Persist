@@ -14,9 +14,9 @@ import { incrementCount } from "./redux/counterSlide";
 // import ComponentB1 from "./components/B1";
 // import ComponentC1 from "./components/C1";
 // import ComponentD1 from "./components/D1";
-const ComponentA1 = lazy(() => import("./components/A1"));
-const ComponentB1 = lazy(() => import("./components/B1"));
-const ComponentC1 = lazy(() => import("./components/C1"));
+const ComponentA = lazy(() => import("./components/A"));
+const ComponentB = lazy(() => import("./components/B"));
+const ComponentC = lazy(() => import("./components/C"));
 
 const ComponentHOC = ({ children }) => {
   const [status, setStatus] = useState(false);
@@ -84,21 +84,21 @@ function App4() {
         {" "}
         <ComponentHOC>
           {" "}
-          <ComponentB1 />
+          <ComponentB />
         </ComponentHOC>
       </div>
       <div style={{ height: "1000px" }}>
         {" "}
         <ComponentHOC>
           {" "}
-          <ComponentC1 />
+          <ComponentC />
         </ComponentHOC>
       </div>
       <div style={{ height: "1000px" }}>
         {" "}
         <ComponentHOC>
           {" "}
-          <ComponentA1 />
+          <ComponentA />
         </ComponentHOC>
       </div>
 
