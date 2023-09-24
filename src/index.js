@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -9,10 +9,10 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import App1 from "./App1";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-const App3 = lazy(() => import("./App3"));
-const App4 = lazy(() => import("./App4"));
-const App5 = lazy(() => import("./App5"));
-const App6 = lazy(() => import("./App6"));
+// const App3 = lazy(() => import("./App3"));
+// const App4 = lazy(() => import("./App4"));
+// const App5 = lazy(() => import("./App5"));
+// const App6 = lazy(() => import("./App6"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
