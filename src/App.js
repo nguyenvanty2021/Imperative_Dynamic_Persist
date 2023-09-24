@@ -3,7 +3,7 @@ import {
   useImperativeHandle,
   useRef,
   useState,
-  Suspense,
+  // Suspense,
 } from "react";
 import React from "react";
 import "./App.css";
