@@ -11,6 +11,8 @@ import App1 from "./App1";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 const App3 = lazy(() => import("./App3"));
 const App4 = lazy(() => import("./App4"));
+const App5 = lazy(() => import("./App5"));
+const App6 = lazy(() => import("./App6"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -39,6 +41,12 @@ root.render(
               </Route>
               <Route path="/c">
                 <App3 />
+              </Route>
+              <Route path="/e">
+                <App5 />
+              </Route>
+              <Route path="/f">
+                <App6 />
               </Route>
             </Suspense>
             <Route path="/b">
