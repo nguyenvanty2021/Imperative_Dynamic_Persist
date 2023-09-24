@@ -9,8 +9,8 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import App1 from "./App1";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-const App2 = lazy(() => import("./App2"));
 const App3 = lazy(() => import("./App3"));
+const App4 = lazy(() => import("./App4"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -46,10 +46,10 @@ root.render(
       <Suspense fallback={<div>Page is Loading...</div>}>
         <Switch>
           <Route path="/d">
-            <App3 />
+            <App4 />
           </Route>
           <Route path="/c">
-            <App2 />
+            <App3 />
           </Route>
         </Switch>
       </Suspense>
