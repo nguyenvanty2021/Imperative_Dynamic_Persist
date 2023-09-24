@@ -1,11 +1,4 @@
-import {
-  Suspense,
-  forwardRef,
-  lazy,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import React from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
