@@ -80,19 +80,27 @@ function App4() {
           Check State 123
         </button>
       </div>
-
-      <ComponentHOC>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentA1 />
-      </ComponentHOC>
-      <ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentB1 />
+        </ComponentHOC>
+      </div>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentB1 />
-      </ComponentHOC>
-      <ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentC1 />
+        </ComponentHOC>
+      </div>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentC1 />
-      </ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentA1 />
+        </ComponentHOC>
+      </div>
 
       <ChildComp ref={ref} />
     </>
