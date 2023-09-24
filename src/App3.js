@@ -81,22 +81,35 @@ function App3() {
         </button>
       </div>
 
-      <ComponentHOC>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentA1 />
-      </ComponentHOC>
-      <ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentA1 />
+        </ComponentHOC>
+      </div>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentB1 />
-      </ComponentHOC>
-      <ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentB1 />
+        </ComponentHOC>
+      </div>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentC1 />
-      </ComponentHOC>
-      <ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentC1 />
+        </ComponentHOC>
+      </div>
+      <div style={{ height: "1000px" }}>
         {" "}
-        <ComponentD1 />
-      </ComponentHOC>
+        <ComponentHOC>
+          {" "}
+          <ComponentD1 />
+        </ComponentHOC>
+      </div>
+
       <ChildComp ref={ref} />
     </>
   );
