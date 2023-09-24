@@ -3,19 +3,19 @@ import {
   useImperativeHandle,
   useRef,
   useState,
-  // lazy,
-  // Suspense,
+  lazy,
+  Suspense,
 } from "react";
 import React from "react";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { incrementCount } from "./redux/counterSlide";
-import ComponentA from "./components/A";
-import ComponentB from "./components/B";
-import ComponentC from "./components/C";
-// const ComponentA = lazy(() => import("./components/A"));
-// const ComponentB = lazy(() => import("./components/B"));
-// const ComponentC = lazy(() => import("./components/C"));
+// import ComponentA from "./components/A";
+// import ComponentB from "./components/B";
+// import ComponentC from "./components/C";
+const ComponentA = lazy(() => import("./components/A"));
+const ComponentB = lazy(() => import("./components/B"));
+const ComponentC = lazy(() => import("./components/C"));
 const Child = (props, ref) => {
   const [stateTest] = useState(false);
   const handleLog = () => console.log(stateTest);
@@ -42,11 +42,11 @@ function App() {
       <button onClick={() => console.log(ref.current.stateTest)}>
         Check State
       </button>
-      {/* <Suspense fallback={<div>Page is Loading...</div>}> */}
-      <ComponentA />
-      <ComponentB />
-      <ComponentC />
-      {/* </Suspense> */}
+      <Suspense fallback={<div>Page is Loading...</div>}>
+        <ComponentA />
+        <ComponentB />
+        <ComponentC />
+      </Suspense>
 
       <ChildComp ref={ref} />
     </>
