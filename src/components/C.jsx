@@ -1,6 +1,5 @@
-const ComponentC = () => {
+export default function ComponentC() {
   return (
-    <p style={{ height: "1000px", backgroundColor: "pink" }}>Component C</p>
+    <p style={{ height: "1000px", backgroundColor: "red" }}>Component C</p>
   );
-};
-export default ComponentC;
+}

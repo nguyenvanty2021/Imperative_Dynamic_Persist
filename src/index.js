@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 const App = lazy(() => import("./App"));
+const App1 = lazy(() => import("./App1"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -16,7 +17,7 @@ root.render(
           <PersistGate persistor={persistor}>
             <Switch>
               <Route path="/app">
-                <App />
+                <App1 />
               </Route>
               <Route path="/">
                 <App />
