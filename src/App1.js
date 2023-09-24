@@ -29,9 +29,25 @@ const Child = (props, ref) => {
 };
 const ChildComp = forwardRef(Child);
 function App1() {
+  const [status, setStatus] = useState(false);
   const dispatch = useDispatch();
   const count = useSelector((state) => state?.counterSlide?.count);
   const ref = useRef();
+  React.useEffect(() => {
+    const B = document.querySelectorAll("#B");
+    if (!B) {
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        console.log(entries);
+        if (entries[0].isIntersecting) {
+        }
+      },
+      { threshold: 1, root: null }
+    );
+    observer.observe(B); // ref element button dùng để check trong viewport
+  }, []);
   return (
     <>
       <h3>Count: {count}</h3>
@@ -44,7 +60,12 @@ function App1() {
       </button>
       <Suspense fallback={<div>Page is Loading...</div>}>
         <ComponentA1 />
-        <ComponentB1 />
+        <div id="B">123</div>
+        {status && (
+          <>
+            <ComponentB1 />
+          </>
+        )}
         <ComponentC1 />
       </Suspense>
 
