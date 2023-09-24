@@ -22,7 +22,7 @@ const Child = (props, ref) => {
 };
 const ChildComp = forwardRef(Child);
 function App1() {
-  const [status] = useState(false);
+  // const [status] = useState(false);
   const dispatch = useDispatch();
   const count = useSelector((state) => state?.counterSlide?.count);
   const ref = useRef();
