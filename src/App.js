@@ -3,7 +3,6 @@ import {
   useImperativeHandle,
   useRef,
   useState,
-  lazy,
   Suspense,
 } from "react";
 import React from "react";
