@@ -16,23 +16,8 @@ import { incrementCount } from "./redux/counterSlide";
 const ComponentA1 = lazy(() => import("./components/A1"));
 const ComponentB1 = lazy(() => import("./components/B1"));
 const ComponentC1 = lazy(() => import("./components/C1"));
-const Child = (props, ref) => {
-  const [stateTest] = useState(false);
-  const handleLog = () => console.log(stateTest);
-  useImperativeHandle(ref, () => {
-    return {
-      stateTest,
-      handleLog,
-    };
-  });
-  return <div>Child</div>;
-};
-const ChildComp = forwardRef(Child);
-function App() {
+const ComponentHOC = ({ children }) => {
   const [status, setStatus] = useState(false);
-  const dispatch = useDispatch();
-  const count = useSelector((state) => state?.counterSlide?.count);
-  const ref = useRef();
   const refB = useRef(null);
   React.useEffect(() => {
     console.log(refB?.current);
@@ -55,6 +40,34 @@ function App() {
   }, [refB]);
   return (
     <>
+      <div ref={refB} id="B">
+        123
+      </div>
+      <Suspense fallback={<div>Page is Loading...</div>}>
+        {status ? children : <></>}
+      </Suspense>
+    </>
+  );
+};
+const Child = (props, ref) => {
+  const [stateTest] = useState(false);
+  const handleLog = () => console.log(stateTest);
+  useImperativeHandle(ref, () => {
+    return {
+      stateTest,
+      handleLog,
+    };
+  });
+  return <div>Child</div>;
+};
+const ChildComp = forwardRef(Child);
+function App() {
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state?.counterSlide?.count);
+  const ref = useRef();
+
+  return (
+    <>
       <div style={{ height: "1000px" }}>
         <h3>Count: {count}</h3>
         <button onClick={() => dispatch(incrementCount(2))}>
@@ -68,7 +81,7 @@ function App() {
       <Suspense fallback={<div>Page is Loading...</div>}>
         <ComponentA1 />
       </Suspense>
-      <div ref={refB} id="B">
+      {/* <div ref={refB} id="B">
         123
       </div>
       <Suspense fallback={<div>Page is Loading...</div>}>
@@ -79,7 +92,10 @@ function App() {
         ) : (
           <></>
         )}
-      </Suspense>
+      </Suspense> */}
+      <ComponentHOC>
+        <ComponentB1 />
+      </ComponentHOC>
       <Suspense fallback={<div>Page is Loading...</div>}>
         <ComponentC1 />
       </Suspense>
