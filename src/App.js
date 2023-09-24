@@ -29,7 +29,7 @@ const Child = (props, ref) => {
 };
 const ChildComp = forwardRef(Child);
 function App() {
-  const [status] = useState(false);
+  const [status, setStatus] = useState(false);
   const dispatch = useDispatch();
   const count = useSelector((state) => state?.counterSlide?.count);
   const ref = useRef();
@@ -43,9 +43,9 @@ function App() {
     const observer = new IntersectionObserver(
       (entries) => {
         console.log(entries);
-        // if (entries[0].isIntersecting) {
-        //   //setStatus(true)
-        // }
+        if (entries[0].isIntersecting) {
+          setStatus(true);
+        }
       },
       { threshold: 1, root: null }
     );
