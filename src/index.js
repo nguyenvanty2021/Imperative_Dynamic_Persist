@@ -29,7 +29,19 @@ root.render(
           <Link to="/d">Page D</Link>
         </li>
       </ul>
-
+      <Suspense fallback={<div>Page is Loading...</div>}>
+        <Switch>
+          <Route path="/d">
+            <App4 />
+          </Route>
+          <Route path="/c">
+            <App3 />
+          </Route>
+          <Route path="/">
+            <App />
+          </Route>
+        </Switch>
+      </Suspense>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <Switch>
@@ -42,17 +54,6 @@ root.render(
           </Switch>
         </PersistGate>
       </Provider>
-
-      <Suspense fallback={<div>Page is Loading...</div>}>
-        <Switch>
-          <Route path="/d">
-            <App4 />
-          </Route>
-          <Route path="/c">
-            <App3 />
-          </Route>
-        </Switch>
-      </Suspense>
     </Router>
   </React.StrictMode>
 );
