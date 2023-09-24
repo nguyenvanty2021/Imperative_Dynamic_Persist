@@ -50,6 +50,7 @@ function App() {
       { threshold: 1, root: null }
     );
     observer.observe(refB?.current); // ref element button dùng để check trong viewport
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refB?.current]);
   return (
     <>
