@@ -9,10 +9,10 @@ import { PersistGate } from "redux-persist/integration/react";
 // import App from "./App";
 // import App1 from "./App1";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-// const App3 = lazy(() => import("./App3"));
-// const App4 = lazy(() => import("./App4"));
-const App5 = lazy(() => import("./App5"));
-const App6 = lazy(() => import("./App6"));
+const App3 = lazy(() => import("./App3"));
+const App4 = lazy(() => import("./App4"));
+// const App5 = lazy(() => import("./App5"));
+// const App6 = lazy(() => import("./App6"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -23,37 +23,37 @@ root.render(
         </li>
         <li>
           <Link to="/b">Page B</Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/c">Page C</Link>
         </li>
         <li>
           <Link to="/d">Page D</Link>
-        </li> */}
-        <li>
+        </li>
+        {/* <li>
           <Link to="/e">Page E</Link>
         </li>
         <li>
           <Link to="/f">Page F</Link>
-        </li>
+        </li> */}
       </ul>
 
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <Switch>
             <Suspense fallback={<div>Page is Loading...</div>}>
-              {/* <Route path="/d">
+              <Route path="/d">
                 <App4 />
               </Route>
               <Route path="/c">
                 <App3 />
-              </Route> */}
-              <Route path="/e">
+              </Route>
+              {/* <Route path="/e">
                 <App5 />
               </Route>
               <Route path="/f">
                 <App6 />
-              </Route>
+              </Route> */}
               {/* <Route path="/b">
               <App1 />
             </Route>
