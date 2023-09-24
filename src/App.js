@@ -16,39 +16,7 @@ import { incrementCount } from "./redux/counterSlide";
 const ComponentA1 = lazy(() => import("./components/A1"));
 const ComponentB1 = lazy(() => import("./components/B1"));
 const ComponentC1 = lazy(() => import("./components/C1"));
-const ComponentHOC = ({ children }) => {
-  const [status, setStatus] = useState(false);
-  const refB = useRef(null);
-  React.useEffect(() => {
-    console.log(refB?.current);
-    if (!refB?.current) {
-      return;
-    }
-    console.log(refB);
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          console.log(entry);
-          setStatus(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 1, rootMargin: "0px" }
-    );
-    observer.observe(refB?.current); // ref element button dùng để check trong viewport
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [refB]);
-  return (
-    <>
-      <div ref={refB} id="B">
-        123
-      </div>
-      <Suspense fallback={<div>Page is Loading...</div>}>
-        {status ? children : <></>}
-      </Suspense>
-    </>
-  );
-};
+
 const Child = (props, ref) => {
   const [stateTest] = useState(false);
   const handleLog = () => console.log(stateTest);
@@ -80,6 +48,8 @@ function App() {
       </div>
       <Suspense fallback={<div>Page is Loading...</div>}>
         <ComponentA1 />
+        <ComponentB1 />
+        <ComponentC1 />
       </Suspense>
       {/* <div ref={refB} id="B">
         123
@@ -93,12 +63,12 @@ function App() {
           <></>
         )}
       </Suspense> */}
-      <ComponentHOC>
+      {/* <ComponentHOC>
         <ComponentB1 />
       </ComponentHOC>
       <Suspense fallback={<div>Page is Loading...</div>}>
         <ComponentC1 />
-      </Suspense>
+      </Suspense> */}
       <ChildComp ref={ref} />
     </>
   );
