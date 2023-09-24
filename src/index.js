@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -9,25 +9,31 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import App1 from "./App1";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-// const App = lazy(() => import("./App"));
-// const App1 = lazy(() => import("./App1"));
+const App2 = lazy(() => import("./App2"));
+const App3 = lazy(() => import("./App3"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Page A</Link>
         </li>
         <li>
-          <Link to="/app">app</Link>
+          <Link to="/b">Page B</Link>
+        </li>
+        <li>
+          <Link to="/c">Page C</Link>
+        </li>
+        <li>
+          <Link to="/d">Page D</Link>
         </li>
       </ul>
-      {/* <Suspense fallback={<div>Page is Loading...</div>}> */}
+
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <Switch>
-            <Route path="/app">
+            <Route path="/b">
               <App1 />
             </Route>
             <Route path="/">
@@ -36,7 +42,17 @@ root.render(
           </Switch>
         </PersistGate>
       </Provider>
-      {/* </Suspense> */}
+
+      <Suspense fallback={<div>Page is Loading...</div>}>
+        <Switch>
+          <Route path="/d">
+            <App3 />
+          </Route>
+          <Route path="/c">
+            <App2 />
+          </Route>
+        </Switch>
+      </Suspense>
     </Router>
   </React.StrictMode>
 );

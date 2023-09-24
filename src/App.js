@@ -12,6 +12,7 @@ import { incrementCount } from "./redux/counterSlide";
 import ComponentA1 from "./components/A1";
 import ComponentB1 from "./components/B1";
 import ComponentC1 from "./components/C1";
+import ComponentD1 from "./components/D1";
 // const ComponentA1 = lazy(() => import("./components/A1"));
 // const ComponentB1 = lazy(() => import("./components/B1"));
 // const ComponentC1 = lazy(() => import("./components/C1"));
@@ -80,6 +81,7 @@ function App() {
       <ComponentA1 />
       <ComponentB1 />
       <ComponentC1 />
+      <ComponentD1 />
       {/* <ComponentHOC></ComponentHOC>
       <ComponentHOC></ComponentHOC>
       <ComponentHOC></ComponentHOC> */}
