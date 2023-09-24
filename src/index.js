@@ -30,13 +30,19 @@ root.render(
         <li>
           <Link to="/d">Page D</Link>
         </li>
+        <li>
+          <Link to="/e">Page E</Link>
+        </li>
+        <li>
+          <Link to="/f">Page F</Link>
+        </li>
       </ul>
 
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <Switch>
-            <Suspense fallback={<div>Page is Loading...</div>}>
-              <Route path="/d">
+            {/* <Suspense fallback={<div>Page is Loading...</div>}> */}
+            {/* <Route path="/d">
                 <App4 />
               </Route>
               <Route path="/c">
@@ -48,7 +54,7 @@ root.render(
               <Route path="/f">
                 <App6 />
               </Route>
-            </Suspense>
+            </Suspense> */}
             <Route path="/b">
               <App1 />
             </Route>
