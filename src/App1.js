@@ -29,11 +29,11 @@ function App1() {
     <>
       <h3>Count: {count}</h3>
       <button onClick={() => dispatch(incrementCount(2))}>
-        increate count
+        increate count 123
       </button>
       <button onClick={() => ref.current.handleLog()}>Check Func</button>
       <button onClick={() => console.log(ref.current.stateTest)}>
-        Check State
+        Check State 123
       </button>
       {/* <Suspense fallback={<div>Page is Loading...</div>}> */}
       <ComponentA1 />

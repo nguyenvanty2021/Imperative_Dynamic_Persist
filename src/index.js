@@ -20,7 +20,7 @@ root.render(
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/app">a</Link>
+          <Link to="/app">app</Link>
         </li>
       </ul>
       {/* <Suspense fallback={<div>Page is Loading...</div>}> */}
