@@ -41,27 +41,29 @@ function App() {
     }
     console.log(refB);
     const observer = new IntersectionObserver(
-      (entries) => {
-        console.log(entries);
-        // if (entries[0].isIntersecting) {
-        //   setStatus(true);
-        // }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          console.log(entry);
+          observer.unobserve(entry.target);
+        }
       },
-      { threshold: 1, root: null }
+      { threshold: 1, rootMargin: "0px" }
     );
     observer.observe(refB?.current); // ref element button dùng để check trong viewport
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [refB?.current]);
+  }, [refB]);
   return (
     <>
-      <h3>Count: {count}</h3>
-      <button onClick={() => dispatch(incrementCount(2))}>
-        increate count 123
-      </button>
-      <button onClick={() => ref.current.handleLog()}>Check Func</button>
-      <button onClick={() => console.log(ref.current.stateTest)}>
-        Check State 123
-      </button>
+      <div style={{ height: "1000px" }}>
+        <h3>Count: {count}</h3>
+        <button onClick={() => dispatch(incrementCount(2))}>
+          increate count 123
+        </button>
+        <button onClick={() => ref.current.handleLog()}>Check Func</button>
+        <button onClick={() => console.log(ref.current.stateTest)}>
+          Check State 123
+        </button>
+      </div>
       <Suspense fallback={<div>Page is Loading...</div>}>
         <ComponentA1 />
       </Suspense>
